@@ -68,7 +68,7 @@ while (True):
         print('Error')
         break
 
-    frameGray =cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    frameGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     dframe = cv2.absdiff(frameGray, grayMedianFrame)
 
