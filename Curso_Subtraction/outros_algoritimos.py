@@ -43,3 +43,13 @@ def getFilter (img, filter):
         opening = cv2.morphologyEx(closing, cv2.MORPH_OPEN, getKernel('opening'), iterations=2)
         dilation = cv2.dilate(opening, getKernel('dilation'), iterations=2)
         return dilation
+    
+    
+    
+    def getBGSubtractor(BGS_TYPE):
+        
+             if BGS_TYPE == 'GMG':
+                    return cv2.bgsegm.createBacgroundSubtractorGMG(initiationFrames = 120, decisionThreshold= 0.8)
+
+             if BGS_TYPE == 'MOG':
+                 return cv2.bgsegm.createBacgroundSubtractorMOG(history= 200, nmixtures = 5, backgroundRation= 0.7, noiseSigma = 0)
