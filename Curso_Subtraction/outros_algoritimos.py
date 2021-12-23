@@ -53,3 +53,12 @@ def getFilter (img, filter):
 
              if BGS_TYPE == 'MOG':
                  return cv2.bgsegm.createBacgroundSubtractorMOG(history= 200, nmixtures = 5, backgroundRation= 0.7, noiseSigma = 0)
+                
+             if BGS_TYPE == 'MOG2':
+                 return cv2.createBacgroundSubtractorMOG2(history= 500, detectShadows= True, varThresHold=100 )
+
+             if BGS_TYPE == 'KNN':
+                 return cv2.createBacgroundSubtractorKNN(history=500, dist2Thresthold=400, detectShadow= True)
+
+             if BGS_TYPE == 'CNT':
+                 return cv2.createBacgroundSubtractorCNT(minPixelStability=15, useHistory=True, maxPixelStability = 15 * 60, isParallel=True)
