@@ -62,3 +62,6 @@ def getFilter (img, filter):
 
              if BGS_TYPE == 'CNT':
                  return cv2.createBacgroundSubtractorCNT(minPixelStability=15, useHistory=True, maxPixelStability = 15 * 60, isParallel=True)
+                
+            print('Detector invalido')
+            sys.exit(1)
